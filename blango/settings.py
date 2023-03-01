@@ -27,11 +27,13 @@ class Dev(Configuration):
       'django.contrib.sessions',
       'django.contrib.messages',
       'django.contrib.staticfiles',
+      'debug_toolbar',
       'crispy_forms',
       'blog',
   ]
 
   MIDDLEWARE = [
+      'debug_toolbar.middleware.DebugToolbarMiddleware',
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
@@ -153,6 +155,8 @@ class Dev(Configuration):
   # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
   DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+  
+  INTERNAL_IPS = ["192.168.10.93"]
 
   X_FRAME_OPTIONS = 'ALLOW-FROM ' + os.environ.get('CODIO_HOSTNAME') + '-8000.codio.io'
   CSRF_COOKIE_SAMESITE = None
