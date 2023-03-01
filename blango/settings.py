@@ -94,6 +94,36 @@ class Dev(Configuration):
       },
   ]
 
+  ADMINS = [("Ben Shaw", "ben@example.com"), ("Leo Lucio", "leo@example.com")]
+  #   DJANGO_ADMINS="Ben Shaw,ben@example.com;Leo Lucio,leo@example.com"
+  LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "__ {levelname} {asctime} {module} {process:d} {thread:d} \n__ {message}",
+            "style": "{",
+            "datefmt": "%Y-%m-%d %H:%M,", },
+        },
+    "handlers": {
+        "console": {"class": "logging.StreamHandler", 
+                    "stream": "ext://sys.stdout",
+                    "formatter": "verbose", },
+        "mail_admins": {
+            "level": "ERROR",
+            "class": "django.utils.log.AdminEmailHandler",
+            "filters": ["require_debug_false"], },
+        },
+    # logging to a file:
+    # "handlers": {
+    # "file": {"class": "logging.FileHandler", "filename": "/var/log/blango.log"},
+    # }
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+            }
+    }
+
 
   # Internationalization
   # https://docs.djangoproject.com/en/3.2/topics/i18n/
