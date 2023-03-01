@@ -11,6 +11,13 @@ class Dev(Configuration):
   SECRET_KEY = 'django-insecure-+sn%dpa!086+g+%44z9*^j^q-u4n!j(#wl)x9a%_1op@zz2+1-'
   DEBUG = values.BooleanValue(True)
   ALLOWED_HOSTS = values.ListValue(["localhost", "0.0.0.0", ".codio.io"])
+  
+  PASSWORD_HASHERS = [
+      'django.contrib.auth.hashers.Argon2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+      'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+      'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+  ]
 
   # Application definition
   INSTALLED_APPS = [
@@ -74,8 +81,6 @@ class Dev(Configuration):
 #       }
 #   }
 
-
-
   # Password validation
   # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -109,11 +114,11 @@ class Dev(Configuration):
         "console": {"class": "logging.StreamHandler", 
                     "stream": "ext://sys.stdout",
                     "formatter": "verbose", },
-        "mail_admins": {
-            "level": "ERROR",
-            "class": "django.utils.log.AdminEmailHandler",
-            "filters": ["require_debug_false"], },
-        },
+        # "mail_admins": {
+        #     "level": "ERROR",
+        #     "class": "django.utils.log.AdminEmailHandler",
+        #     "filters": ["require_debug_false"], },
+      },
     # logging to a file:
     # "handlers": {
     # "file": {"class": "logging.FileHandler", "filename": "/var/log/blango.log"},
