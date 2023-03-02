@@ -22,6 +22,7 @@ class Dev(Configuration):
 
   # Application definition
   INSTALLED_APPS = [
+      'blango_auth',
       'django.contrib.admin',
       'django.contrib.auth',
       'django.contrib.contenttypes',
@@ -30,7 +31,6 @@ class Dev(Configuration):
       'django.contrib.staticfiles',
       'debug_toolbar',
       'crispy_forms',
-      'blango_auth',
       'blog',
   ]
 
@@ -170,6 +170,9 @@ class Dev(Configuration):
 
   CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
   RISPY_TEMPLATE_PACK = "bootstrap5"
+  EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+  ACCOUNT_ACTIVATION_DAYS = 7
+  REGISTRATION_OPEN = True
 
 
 class Prod(Dev):
