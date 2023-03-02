@@ -12,6 +12,7 @@ class Dev(Configuration):
   DEBUG = values.BooleanValue(True)
   ALLOWED_HOSTS = values.ListValue(["localhost", "0.0.0.0", ".codio.io"])
   
+  AUTH_USER_MODEL = "blango_auth.User"
   PASSWORD_HASHERS = [
       'django.contrib.auth.hashers.Argon2PasswordHasher',
       'django.contrib.auth.hashers.PBKDF2PasswordHasher',
@@ -29,6 +30,7 @@ class Dev(Configuration):
       'django.contrib.staticfiles',
       'debug_toolbar',
       'crispy_forms',
+      'blango_auth',
       'blog',
   ]
 
