@@ -31,6 +31,7 @@ class Dev(Configuration):
       'django.contrib.sites',
       'django.contrib.staticfiles',
       'debug_toolbar',
+      'rest_framework',
       'crispy_forms',
       'blog',
       'allauth',
