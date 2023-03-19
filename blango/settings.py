@@ -39,6 +39,7 @@ class Dev(Configuration):
       'allauth.account',
       'allauth.socialaccount',
       'allauth.socialaccount.providers.google',
+      'drf_yasg',
   ]
 
   SITE_ID = 1
@@ -58,6 +59,12 @@ class Dev(Configuration):
     ],
   }
 
+  SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
+    }
 
   MIDDLEWARE = [
       'debug_toolbar.middleware.DebugToolbarMiddleware',
