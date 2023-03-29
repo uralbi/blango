@@ -13,6 +13,7 @@ import blango_auth.views
 # print(f'Time zone: {settings.TIME_ZONE}')
 
 urlpatterns = [
+    path("post-table/", blog.views.post_table, name="blog-post-table"),
     path('admin/', admin.site.urls),
     path("api/v1/", include("blog.api.urls")),
     path('', blog.views.index),
