@@ -23,6 +23,17 @@
                 {% endcol %}
             {% endrow %}
         {% endif %}
+
+        {% if post.hero_image %}
+            {% row %}
+                {% col %}
+                    <img class="img-fluid" src="{{ post.hero_image.thumbnail.100x100.url }}">
+                    <img class="img-fluid" src="{{ post.hero_image.crop.100x100.url }}">
+                {% endcol %}
+            {% endrow %}
+        {% endif %}
+
+
         <div class='container'>
         {% include "blog/post-comments.html" %}
         </div>

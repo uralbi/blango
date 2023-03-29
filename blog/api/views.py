@@ -70,7 +70,7 @@ class PostViewSet(viewsets.ModelViewSet):
         return self.queryset
       else: #filter for own or
         return self.queryset.filter(
-            Q(published_at__lte=timezone.now() | Q(author=self.request.user)))
+            Q(published_at__lte=timezone.now() or Q(author=self.request.user)))
       
       time_period_name = self.kwargs.get('period_name')
 
