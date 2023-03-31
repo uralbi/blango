@@ -11,22 +11,21 @@ class ClickButton extends React.Component {
 
   render () {
     let buttonText
-
     if (this.state.wasClicked)
       buttonText = 'Clicked!'
     else
       buttonText = 'Click Me'
 
-    return React.createElement(
-      'button',
-      {
-        className: 'btn btn-primary mt-2',
-        onClick: () => {
+    return <button
+      className="btn btn-primary mt-2"
+      onClick={
+        () => {
           this.handleClick()
         }
-      },
-      buttonText
-    )
+      }
+    >
+      {buttonText}
+    </button>
   }
 }
 
